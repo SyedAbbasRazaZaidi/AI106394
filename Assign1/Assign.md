@@ -11,9 +11,8 @@ StdID     |     Name
 
 
 ## Project Description:
-
-
-
+In this project we are using scikit learn libraries to cross validate data predict it's accuracy according for desired result.We are submitting th output file in Kaggle Digit Recognizer. In first step we are performing cross validation of data by using "train.CSV".By using Pandas we are reading our CSV file and checking the data frames.then we are splitting our training data and test data. In the next step we are using linear regression for prediction and catogorizing data by giving it a score.
+we are using built-in models provided by scikit learn such as Gaussian Naive Bayes , Bernoulli Naive Bayes  and Multinomial Naive Bayes. In the final Step we are writing our data into another .csv so we can submit it on Kaggle.
 
 
 ## Project Insights:
