@@ -71,28 +71,28 @@ X = X / 255
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
 
 #training data by using builtin linearregression function provided by scikit learn
-reg = LinearRegression()
-reg.fit(X_train, y_train)
+Reg = LinearRegression()
+Reg.fit(X_train, y_train)
 
 #testing our data by giving it a score
-y_test_pred_reg = reg.predict(X_test)
+y_test_pred_reg = Reg.predict(X_test)
 metrics.r2_score(y_test, y_test_pred_reg)
 
 #using gaussian Naive Bayes using different models to get the best accuracy so it can be used further 
-gnb = GaussianNB()
-y_pred_gnb = gnb.fit(X_train, y_train).predict(X_test)
+Gauss = GaussianNB()
+y_pred_gnb = Gauss.fit(X_train, y_train).predict(X_test)
 accuracy_gnb = metrics.accuracy_score(y_test, y_pred_gnb)
 print("Accuracy by Gaussian: ",accuracy_gnb)
 
 #Now using bernoulli Naive Bayes for same purpose we are using GaussianNB
-bnb = BernoulliNB()
-y_pred_bnb = bnb.fit(X_train, y_train).predict(X_test)
+Bernoulli = BernoulliNB()
+y_pred_bnb = Bernoulli.fit(X_train, y_train).predict(X_test)
 accuracy_bnb = metrics.accuracy_score(y_test, y_pred_bnb)
 print(" Accuracy by Bernoulli: ",accuracy_bnb)
 
 #Now using MultiNomial Naive Bayes for same purpose we are using GaussianNB
-mnb = MultinomialNB()
-y_pred_mnb = mnb.fit(X_train, y_train).predict(X_test)
+Multinomial = MultinomialNB()
+y_pred_mnb = Multinomial.fit(X_train, y_train).predict(X_test)
 accuracy_mnb = metrics.accuracy_score(y_test, y_pred_mnb)
 print(" Accuracy by MultinomialNB: ",accuracy_mnb)
 
