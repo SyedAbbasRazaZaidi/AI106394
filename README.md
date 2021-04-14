@@ -95,6 +95,8 @@ finalPred = finalPred.reindex(['ImageId','Label'], axis=1)
 
 finalPred.to_csv('abbas_SData.csv',index=False)
 ```
+## Output
+
 
 
 ## References:
