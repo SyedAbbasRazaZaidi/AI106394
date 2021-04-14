@@ -94,9 +94,12 @@ finalPred['ImageId']=finalPred.index+1
 finalPred = finalPred.reindex(['ImageId','Label'], axis=1)
 
 finalPred.to_csv('abbas_SData.csv',index=False)
+
 ```
 ## Output
-![alt text]https://github.com/SyedAbbasRazaZaidi/AI106394/blob/main/Assign1/abbasOutput.PNG
+
+![abbasOutput](https://user-images.githubusercontent.com/61627416/114662651-81f19f00-9d12-11eb-9806-37b7bc11cac8.PNG)
+
 
 
 ## References:
