@@ -17,6 +17,14 @@ we are using built-in models provided by scikit learn such as Gaussian Naive Bay
 
 ## Project Insights:
 
+So, far in this project we have learned and read many things every member was assigned with multiple task's both for reading and Code. Scikit Learn Website was a big help and the refrences listed in the end also helped alot.This was a tough task here are some insights for what we have learned from this project:
+
+- Importing and editing files  and data frames with panda library w.r.t given task
+- Cross-validation Techniques
+- Using different models to train Data 
+- Applying Naive Bayes
+- Testing data for desired Accuracy
+
 ## Code: 
 ```python
 #importing needed Libraries
