@@ -19,7 +19,8 @@ StdID     |     Name
 ## Project Insights:
 
 ## Code: 
-```
+```python
+
 import pandas as pan
 import numpy as nmpy
 from matplotlib import pyplot as plt
