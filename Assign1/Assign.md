@@ -26,8 +26,7 @@ So, far in this project we have learned and read many things every member was as
 - Testing data for desired Accuracy
 
 ## Code: 
-```python
-#importing needed Libraries
+```python#importing needed Libraries
 
 import pandas as pd
 import numpy as nmpy
@@ -74,7 +73,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_
 Reg = LinearRegression()
 Reg.fit(X_train, y_train)
 
-#testing our data by giving it a score comparing X with Y
+#testing our data by giving it a score
 y_test_pred_reg = Reg.predict(X_test)
 metrics.r2_score(y_test, y_test_pred_reg)
 
@@ -103,6 +102,7 @@ svm_clf.fit(X_train, y_train)
 
 #checking if the sample data x is equal to predicted data Y 
 y_test_pred_svm = svm_clf.predict(X_test)
+#predicting score
 metrics.accuracy_score(y_test, y_test_pred_svm)
 
 #reading File test.csv 
