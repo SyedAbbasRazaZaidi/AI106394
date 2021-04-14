@@ -74,7 +74,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_
 Reg = LinearRegression()
 Reg.fit(X_train, y_train)
 
-#testing our data by giving it a score
+#testing our data by giving it a score comparing X with Y
 y_test_pred_reg = Reg.predict(X_test)
 metrics.r2_score(y_test, y_test_pred_reg)
 
