@@ -130,7 +130,6 @@ finalPred.to_csv('abbas_SData.csv',index=False)
 ![abbasOutput](https://user-images.githubusercontent.com/61627416/114662651-81f19f00-9d12-11eb-9806-37b7bc11cac8.PNG)
 
 
-
 ## References:
 - [1] https://scikit-learn.org/stable/modules/cross_validation.html
 - [2] https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html
