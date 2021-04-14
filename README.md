@@ -98,5 +98,7 @@ finalPred.to_csv('abbas_SData.csv',index=False)
 
 
 ## References:
-- [refrence link1]
+- [1] https://scikit-learn.org/stable/modules/cross_validation.html
+- [2] https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html
+- [3] https://scikit-learn.org/stable/modules/naive_bayes.html
 
