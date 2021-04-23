@@ -197,7 +197,6 @@ Here is an output score ScreenShot taken from kaggle:
 ![Capture](https://user-images.githubusercontent.com/61627416/115865304-925ff300-a451-11eb-9797-84cb5e2de2df.PNG)
 
 
-
 ## References:
 - [1] https://scikit-learn.org/stable/modules/cross_validation.html
 - [2] https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html
