@@ -21,28 +21,29 @@ The convolution is performed by sliding the kernel over the image, generally sta
 Convolution network receives a normal color image as a rectangular box whose width and height are measured by the number of pixels along those dimensions, and whose depth is three layers deep, one for each letter in RGB. Those depth layers are referred to as channels. As images move through a convolution network, here we discussed its techniques, expressing them as matrices of multiple dimensions in this form: 5x5, 7x7, 9x9.
 
 After applying convoluation and filters we have applied various techniques on our datasets techniques we have used are:
--SVM
--KNN
--Linear Regression
--Multimonial Naive Bayes
+- SVM
+- KNN
+- Linear Regression
+- Multimonial Naive Bayes
 
 So, actullly what are these techniques?  why have we used them? and how did we used them? these are the question aroused in your mind here is the answer to it !
 
--SVM:
+- SVM:
       Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outlier’s detection. We have used SVM because it is 
       Effective in high dimensional spaces. Still effective in cases where number of dimensions is greater than the number of samples. Uses a subset of training points in the         decision function (called support vectors), so it is also memory efficient.
       
--KNN:
-      KNN is a non-parametric and lazy learning algorithm. Non-parametric means there is no assumption for underlying data distribution. In other words, the model structure           determined from the dataset. All training data used in the testing phase. This makes training faster and testing phase slower and costlier. Costly testing phase means time       and memory. In the worst case, KNN needs more time to scan all data points and scanning all data points will require more memory for storing training data. In KNN, K is         the number of nearest neighbors. The number of neighbors is the core deciding factor. K is generally an odd number if the number of classes is 2. When K=1, then the             algorithm is known as the nearest neighbor algorithm.
+- KNN:
+      KNN is a non-parametric and lazy learning algorithm. Non-parametric means there is no assumption for underlying data distribution. In other words, the model structure           determined from the dataset. All training data used in the testing phase. This makes training faster and testing phase slower and costlier. Costly testing phase means     	time and memory. In the worst case, KNN needs more time to scan all data points and scanning all data points will require more memory for storing training data. In KNN, K 	 is the number of nearest neighbors. The number of neighbors is the core deciding factor. K is generally an odd number if the number of classes is 2. When K=1, then the         algorithm is known as the nearest neighbor algorithm.
+      
       KNN has the following basic steps:
       1.	Calculate distance
       2.	Find closest neighbors
       3.	Vote for labels
       
--Linear Regression:
+- Linear Regression:
                     Linear Regression fits a linear model with coefficients w = (w1, …, wp) to minimize the residual sum of squares between the observed targets in the dataset,                     and the targets predicted by the linear approximation.
 
--Multimonial Naive Bayes:
+- Multimonial Naive Bayes:
                           It implements the naive Bayes algorithm for multinomial distributed data, and is one of the two classic naive Bayes variants used in text                                         classification (where the data are typically represented as word vector counts, although TF-IDF vectors are also known to work well in practice). 
                     
 ## Project Insights:
