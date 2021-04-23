@@ -1,4 +1,4 @@
-# AI106394 :  Digit Recognizer Kaggle Readiness  
+# AI106394 :  Becoming a Pro pn Kaggle (Digit Recognizer)  
 
 ### PROJECT MEMBERS:
 
@@ -11,123 +11,172 @@ Student ID      |     Name
 
 
 ## Project Description:
-In this project we are using scikit learn libraries to cross validate data predict it's accuracy according for desired result.We are submitting th output file in Kaggle Digit Recognizer. In first step we are performing cross validation of data by using "train.CSV".By using Pandas we are reading our CSV file and checking the data frames.then we are splitting our training data and test data. In the next step we are using linear regression for prediction and catogorizing data by giving it a score.
-we are using built-in models provided by scikit learn such as Gaussian Naive Bayes , Bernoulli Naive Bayes  and Multinomial Naive Bayes. In the final Step we are writing our data into another .csv so we can submit it on Kaggle.
+This Project is an extension of our previous assignment. In this pirticular project we are implying filters and convolutionm, We are using 5x5 7x7  and 9x9 weighted and unweighted filters so basically what is convolution here is a short description about concolution:
+It is the single most important technique in Digital Signal Processing. Using the strategy of impulse decomposition, systems are described by a signal called the impulse response. Convolution is important because it relates the three signals of interest: the input signal, the output signal, and the impulse response. 
 
+*** How it Works ? ***
 
+The convolution is performed by sliding the kernel over the image, generally starting at the top left corner, so as to move the kernel through all the positions where the kernel fits entirely within the boundaries of the image. In this report we have worked for 5x5, 7x7 and 9x9 weighted and unweighted with four techniques.
+
+Convolution network receives a normal color image as a rectangular box whose width and height are measured by the number of pixels along those dimensions, and whose depth is three layers deep, one for each letter in RGB. Those depth layers are referred to as channels. As images move through a convolution network, here we discussed its techniques, expressing them as matrices of multiple dimensions in this form: 5x5, 7x7, 9x9.
+
+After applying convoluation and filters we have applied various techniques on our datasets techniques we have used are:
+-SVM
+-KNN
+-Linear Regression
+-Multimonial Naive Bayes
+
+So, actullly what are these techniques?  why have we used them? and how did we used them? these are the question aroused in your mind here is the answer to it !
+
+-SVM:
+      Support vector machines (SVMs) are a set of supervised learning methods used for classification, regression and outlier’s detection. We have used SVM because it is 
+      Effective in high dimensional spaces. Still effective in cases where number of dimensions is greater than the number of samples. Uses a subset of training points in the         decision function (called support vectors), so it is also memory efficient.
+      
+-KNN:
+      KNN is a non-parametric and lazy learning algorithm. Non-parametric means there is no assumption for underlying data distribution. In other words, the model structure           determined from the dataset. All training data used in the testing phase. This makes training faster and testing phase slower and costlier. Costly testing phase means time       and memory. In the worst case, KNN needs more time to scan all data points and scanning all data points will require more memory for storing training data. In KNN, K is         the number of nearest neighbors. The number of neighbors is the core deciding factor. K is generally an odd number if the number of classes is 2. When K=1, then the             algorithm is known as the nearest neighbor algorithm.
+      KNN has the following basic steps:
+      1.	Calculate distance
+      2.	Find closest neighbors
+      3.	Vote for labels
+      
+-Linear Regression:
+                    Linear Regression fits a linear model with coefficients w = (w1, …, wp) to minimize the residual sum of squares between the observed targets in the dataset,                     and the targets predicted by the linear approximation.
+
+-Multimonial Naive Bayes:
+                          It implements the naive Bayes algorithm for multinomial distributed data, and is one of the two classic naive Bayes variants used in text                                         classification (where the data are typically represented as word vector counts, although TF-IDF vectors are also known to work well in practice). 
+                    
 ## Project Insights:
 
-So, far in this project we have learned and read many things every member was assigned with multiple task's both for reading and Code. Scikit Learn Website was a big help and the refrences listed in the end also helped alot.This was a tough task here are some insights for what we have learned from this project:
+So, far in this project we have learned and read many things every member was assigned with multiple task's both for reading and Code. Scikit Learn was a big help and the refrences listed in the end also helped alot.Here are some insights for what we have learned from this project:
 
-- Importing and editing files  and data frames with panda library w.r.t given task
-- Cross-validation Techniques
+- Applying Filters of different Variants 
+- Using Convolve Function & also making a convolve function
 - Using different models to train Data 
-- Applying Naive Bayes
 - Testing data for desired Accuracy
 
+
 ## Code: 
-```python#importing needed Libraries
 
+This Section Contains importants function we have used through out he code:
+```python 
+
+#libraries we have used through out the code
+
+import numpy as np
+import sklearn as sk
 import pandas as pd
-import numpy as nmpy
-from matplotlib import pyplot as plt
-
-from sklearn.model_selection import GridSearchCV
-from sklearn import preprocessing
-from sklearn.naive_bayes import GaussianNB
-from sklearn.naive_bayes import BernoulliNB 
-from sklearn.naive_bayes import MultinomialNB 
-from sklearn.naive_bayes import CategoricalNB
-
-from sklearn.feature_selection import SelectKBest
-from sklearn.feature_selection import chi2
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split 
-from sklearn.linear_model import LinearRegression
-from sklearn import metrics
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
 from sklearn import svm
 from sklearn.svm import SVC
-
-import scipy.stats as ss
-import seaborn as sb
-
+from sklearn import metrics
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import GridSearchCV
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import classification_report, accuracy_score
 import math
 
-#reading csv Filewith panda builtin function pan.read_csv and framing the data 
+#function to perform convolution
+def convolve2D(image, filter):
+  fX, fY = filter.shape # Get filter dimensions
+  fNby2 = (fX//2) 
+  n = 28
+  nn = n - (fNby2 *2) #new dimension of the reduced image size
+  newImage = np.zeros((nn,nn)) #empty new 2D imange
+  for i in range(0,nn):
+    for j in range(0,nn):
+      newImage[i][j] = np.sum(image[i:i+fX, j:j+fY]*filter)//25
+  return newImage
+  
+  
+#Create Filter for convolution [9x9] we have changed the filters accordingly this is a 9x9 unweighted filter
+filter = np.array([[1,1,1,1,1,1,1,1,1],
+          [1,1,1,1,1,1,1,1,1],
+          [1,1,1,1,1,1,1,1,1],
+          [1,1,1,1,1,1,1,1,1],
+          [1,1,1,1,1,1,1,1,1],
+          [1,1,1,1,1,1,1,1,1],
+	        [1,1,1,1,1,1,1,1,1],
+	        [1,1,1,1,1,1,1,1,1],
+          [1,1,1,1,1,1,1,1,1]])
 
-df=pd.read_csv("/content/sample_data/train.csv")
-df
-df.columns
-df["label"].value_counts()
-df.isnull().sum() #checking if any data frame is null
+#convert from dataframe to numpy array
+X = X.to_numpy()
+print(X.shape)
 
+#new array with reduced number of features to store the small size images
+sX = np.empty((0,400), int)
 
-X = df.drop(["label"], axis=1) #removing specified data by using drop function 
-y = df["label"]
-X = X / 255
+ss = 500 #subset size for dry runs change to 42000 to run on whole data
 
-#Spliting Data into random train and test subsets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
+#Perform convolve on all images
+for img in X[0:ss,:]:
+  img2D = np.reshape(img, (28,28))
+  nImg = convolve2D(img2D,filter)
+  nImg1D = np.reshape(nImg, (-1,400))
+  sX = np.append(sX, nImg1D, axis=0)
 
-#training data by using builtin linearregression function provided by scikit learn
-Reg = LinearRegression()
-Reg.fit(X_train, y_train)
+Y = Y.to_numpy()
+sY = Y[0:ss]
 
-#testing our data by giving it a score
-y_test_pred_reg = Reg.predict(X_test)
-metrics.r2_score(y_test, y_test_pred_reg)
+#spliting train and test data
+sXTrain, sXTest, yTrain, yTest = train_test_split(sX,sY,test_size=0.2,random_state=0)
+print(sXTest.shape,", ",yTest.shape)
+print(sXTrain.shape,", ",yTrain.shape)
 
-#using gaussian Naive Bayes using different models to get the best accuracy so it can be used further 
-Gauss = GaussianNB()
-y_pred_gnb = Gauss.fit(X_train, y_train).predict(X_test)
-accuracy_gnb = metrics.accuracy_score(y_test, y_pred_gnb)
-print("Accuracy by Gaussian: ",accuracy_gnb)
+#Sample code for Applying SVM on the Dataset:
 
-#Now using bernoulli Naive Bayes for same purpose we are using GaussianNB
-Bernoulli = BernoulliNB()
-y_pred_bnb = Bernoulli.fit(X_train, y_train).predict(X_test)
-accuracy_bnb = metrics.accuracy_score(y_test, y_pred_bnb)
-print(" Accuracy by Bernoulli: ",accuracy_bnb)
-
-#Now using MultiNomial Naive Bayes for same purpose we are using GaussianNB
-Multinomial = MultinomialNB()
-y_pred_mnb = Multinomial.fit(X_train, y_train).predict(X_test)
-accuracy_mnb = metrics.accuracy_score(y_test, y_pred_mnb)
-print(" Accuracy by MultinomialNB: ",accuracy_mnb)
-
-#using C-Support Vector classification by specifying kernel type on which algorithm is running, 
-#using verbose to take advantage of a per-process runtime setting, controlling random number genration for shuffling data
 svm_clf = SVC(kernel="rbf", random_state=42, verbose=3,C=9)
-svm_clf.fit(X_train, y_train)
+svm_clf.fit(sXTrain,yTrain)
+y_test_pred_svm = svm_clf.predict(sXTest)
+s=metrics.accuracy_score(yTest, y_test_pred_svm)
+print("Accuracy for SVM\n",s)
 
-#checking if the sample data x is equal to predicted data Y 
-y_test_pred_svm = svm_clf.predict(X_test)
-#predicting score
-metrics.accuracy_score(y_test, y_test_pred_svm)
+#Sample code for Applying Linear Regression on the Dataset:
 
-#reading File test.csv 
-test=pd.read_csv("/content/sample_data/test.csv")
-test=test/255
-svmFinalpred=svm_clf.predict(test)
+reg = LinearRegression()
+reg.fit(sXTrain,yTrain)
+regYpred = reg.predict(sXTest)
+regAcc = metrics.r2_score(yTest,regYpred) 
+print('Linear Regression Accuracy: ', regAcc)
 
-#writing the final predictions to abbas_SData.csv file using panda
-finalPred=pd.DataFrame(svmFinalpred,columns=["Label"])
-finalPred['ImageId']=finalPred.index+1
-finalPred = finalPred.reindex(['ImageId','Label'], axis=1)
-finalPred.to_csv('abbas_SData.csv',index=False)
+#Sample code for Applying KNN on the Dataset:
+
+classifier = KNeighborsClassifier(n_neighbors=7,p=2,metric='euclidean')
+classifier.fit(sXTrain,yTrain)
+Y_pred = classifier.predict(sXTest)
+print(classification_report(yTest,Y_pred))
+print(accuracy_score(yTest,Y_pred))
+
+#Sample code for Applying MultimonialNB on the Dataset:
+
+clf = MultinomialNB()
+clf.fit(sXTrain, yTrain)
+print(clf.class_count_)
+print(clf.score(sXTest, yTest))
+
 ```
-## Output
+## Outputs
 
-### 1.
-![colabout](https://user-images.githubusercontent.com/61627416/114673334-81133a00-9d1f-11eb-85ac-dc3292ef48e6.PNG)
+Here are outputs we have achieved within Google Colab:
 
-### 2.
-![file](https://user-images.githubusercontent.com/61627416/114673545-bddf3100-9d1f-11eb-9633-e5d47382e129.PNG)
-
-
-### Kaggle Score
-
-![abbasOutput](https://user-images.githubusercontent.com/61627416/114662651-81f19f00-9d12-11eb-9806-37b7bc11cac8.PNG)
+ Filter Size   |   Techniques    |   Weighted Filter  |  Un-Weighted Filter  
+-------------- | --------------- | ------------------ | -------------------
+               |  SVM            |       0.9          |          0.89
+               |  LinearReg      |     -1.2306        |        -2.700 
+   *[5x5]*     |  KNN            |       0.83         |          0.82
+               |  MultiMonialNB  |       0.81         |          0.82
+-------------- | --------------- | ------------------ | -------------------
+               |  SVM            |       0.89         |          0.9
+               |  LinearReg      |     -2.4992        |        -3.6308 
+   *[7x7]*     |  KNN            |       0.76         |          0.77
+               |  MultiMonialNB  |       0.73         |          0.76
+-------------- | --------------- | ------------------ | -------------------
+               |  SVM            |       0.86         |          0.88
+               |  LinearReg      |     -779.92        |         -30.94
+   *[9x9]*     |  KNN            |       0.75         |          0.77
+               |  MultiMonialNB  |       0.7          |          0.74
 
 
 ## References:
