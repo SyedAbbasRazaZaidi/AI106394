@@ -163,30 +163,35 @@ Here are outputs we have achieved in Google Colab:
 
 ### For 5x5 Filter:
 
-  Techniques    |   Weighted Filter  |  Un-Weighted Filter  
---------------- | ------------------ | -------------------
- SVM            |       0.9          |          0.89
- LinearReg      |     -1.2306        |        -2.700 
- KNN            |       0.83         |          0.82
- MultiMonialNB  |       0.81         |          0.82
+  Techniques   |   Un-Weighted Filter  |  Weighted Filter  
+-------------- | --------------------- | -------------------
+ SVM            |       0.9            |          0.89
+ LinearReg      |     -1.2306          |        -2.700 
+ KNN            |       0.83           |          0.82
+ MultiMonialNB  |       0.81           |          0.82
  
  ### For 7x7 Filter:
  
-  Techniques   |   Weighted Filter  |  Un-Weighted Filter  
--------------- | ------------------ | -------------------	       
-SVM            |       0.89         |          0.9
-LinearReg      |     -2.4992        |        -3.6308 
-KNN            |       0.76         |          0.77
-MultiMonialNB  |       0.73         |          0.76
+  Techniques   |   Un-Weighted Filter  |  Weighted Filter  
+-------------- | --------------------- | -------------------	       
+SVM            |       0.89            |          0.9
+LinearReg      |     -2.4992           |        -3.6308 
+KNN            |       0.76            |          0.77
+MultiMonialNB  |       0.73            |          0.76
 
 ### For 9x9 Filter:
 
-  Techniques   |   Weighted Filter  |  Un-Weighted Filter  
--------------- | ------------------ | -------------------	       
-SVM            |       0.86         |          0.88
-LinearReg      |     -779.92        |         -30.94
-KNN            |       0.75         |          0.77
-MultiMonialNB  |       0.7          |          0.74
+  Techniques   |   Un-Weighted Filter  |  Weighted Filter  
+-------------- | --------------------- | -------------------	       
+SVM            |       0.86            |          0.88
+LinearReg      |     -779.92           |         -30.94
+KNN            |       0.75            |          0.77
+MultiMonialNB  |       0.7             |          0.74
+
+### Output on Kaggle:
+
+From colab scores we have chosen the technique which has the highest score which we have gained by applying SVM on 5x5 weighted filter and 7x7 unweighted Filter.
+Here is an output score ScreenShot taken from kaggle:
 
 
 
