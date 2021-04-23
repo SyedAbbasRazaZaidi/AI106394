@@ -14,7 +14,7 @@ Student ID      |     Name
 This Project is an extension of our previous assignment. In this pirticular project we are implying filters and convolutionm, We are using 5x5 7x7  and 9x9 weighted and unweighted filters so basically what is convolution here is a short description about concolution:
 It is the single most important technique in Digital Signal Processing. Using the strategy of impulse decomposition, systems are described by a signal called the impulse response. Convolution is important because it relates the three signals of interest: the input signal, the output signal, and the impulse response. 
 
-*** How it Works ? ***
+### How it Works ? 
 
 The convolution is performed by sliding the kernel over the image, generally starting at the top left corner, so as to move the kernel through all the positions where the kernel fits entirely within the boundaries of the image. In this report we have worked for 5x5, 7x7 and 9x9 weighted and unweighted with four techniques.
 
@@ -159,7 +159,9 @@ print(clf.score(sXTest, yTest))
 ```
 ## Outputs
 
-Here are outputs we have achieved within Google Colab:
+Here are outputs we have achieved in Google Colab:
+
+### For 5x5 Filter:
 
   Techniques    |   Weighted Filter  |  Un-Weighted Filter  
 --------------- | ------------------ | -------------------
@@ -168,6 +170,7 @@ Here are outputs we have achieved within Google Colab:
  KNN            |       0.83         |          0.82
  MultiMonialNB  |       0.81         |          0.82
  
+ ### For 7x7 Filter:
  
   Techniques   |   Weighted Filter  |  Un-Weighted Filter  
 -------------- | ------------------ | -------------------	       
@@ -175,9 +178,15 @@ SVM            |       0.89         |          0.9
 LinearReg      |     -2.4992        |        -3.6308 
 KNN            |       0.76         |          0.77
 MultiMonialNB  |       0.73         |          0.76
-	       
 
-	       
+### For 9x9 Filter:
+
+  Techniques   |   Weighted Filter  |  Un-Weighted Filter  
+-------------- | ------------------ | -------------------	       
+SVM            |       0.86         |          0.88
+LinearReg      |     -779.92        |         -30.94
+KNN            |       0.75         |          0.77
+MultiMonialNB  |       0.7          |          0.74
 
 
 
