@@ -1,4 +1,4 @@
-# AI106394 :  Becoming a Pro pn Kaggle (Digit Recognizer)  
+# AI106394 :  Becoming a Pro on Kaggle (Digit Recognizer)  
 
 ### PROJECT MEMBERS:
 
