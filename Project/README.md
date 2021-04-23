@@ -190,8 +190,10 @@ MultiMonialNB  |       0.7             |          0.74
 
 ### Output on Kaggle:
 
-From colab scores we have chosen the technique which has the highest score which we have gained by applying SVM on 5x5 weighted filter and 7x7 unweighted Filter.
+From colab scores we have chosen the technique which has the highest score which we have gained by applying SVM on 5x5 un-weighted filter and 7x7 weighted Filter.
 Here is an output score ScreenShot taken from kaggle:
+
+![Capture](https://user-images.githubusercontent.com/61627416/115865304-925ff300-a451-11eb-9797-84cb5e2de2df.PNG)
 
 
 
