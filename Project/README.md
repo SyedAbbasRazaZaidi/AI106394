@@ -167,6 +167,26 @@ Here are outputs we have achieved within Google Colab:
  LinearReg      |     -1.2306        |        -2.700 
  KNN            |       0.83         |          0.82
  MultiMonialNB  |       0.81         |          0.82
+ 
+ 
+ Filter Size   |   Techniques    |   Weighted Filter  |  Un-Weighted Filter  
+-------------- | --------------- | ------------------ | -------------------
+               |  SVM            |       0.9          |          0.89
+               |  LinearReg      |     -1.2306        |        -2.700 
+   5x5         |  KNN            |       0.83         |          0.82
+               |  MultiMonialNB  |       0.81         |          0.82
+	       
+-------------- | --------------- | ------------------ | -------------------
+               |  SVM            |       0.89         |          0.9
+               |  LinearReg      |     -2.4992        |        -3.6308 
+   7x7         |  KNN            |       0.76         |          0.77
+               |  MultiMonialNB  |       0.73         |          0.76
+	       
+-------------- | --------------- | ------------------ | -------------------
+               |  SVM            |       0.86         |          0.88
+               |  LinearReg      |     -779.92        |         -30.94
+   9x9         |  KNN            |       0.75         |          0.77
+               |  MultiMonialNB  |       0.7          |          0.74
 	       
 
 
